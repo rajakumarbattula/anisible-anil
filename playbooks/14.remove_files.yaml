@@ -1,0 +1,10 @@
+---
+- name: deleting the files
+  hosts: DEV
+  tasks:
+     - name: delete files
+       #shell: rm -rf /home/anil/sample.txt
+       file:
+         path: /home/anil/sample.txt
+         state: absent
+       

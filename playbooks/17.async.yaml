@@ -1,0 +1,13 @@
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Install Apache
+      action: yum name=afagbsdg state=installed
+      async: 300
+      poll: 3
+      notify: restart httpd
+  handlers:
+    - name: restart httpd
+      action: service name=httpd state=restarted
+

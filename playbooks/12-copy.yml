@@ -1,0 +1,13 @@
+---
+- name: DEMO on copy module
+  hosts: DEV
+  become: yes
+  tasks:
+    - name: copying the file
+      copy:
+        src: /opt/sample.txt
+        dest: /tmp
+        owner: devops
+        group: devops
+        mode: '0644'
+        remote_src: yes

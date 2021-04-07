@@ -1,0 +1,14 @@
+---
+- name: demo on loops
+  hosts: Test
+  become: yes
+  tasks:
+    - name: installing the packages
+      yum:
+        name: "{{item}}"
+        state: latest
+      loop:
+        - httpd
+        - git
+        - docker
+        - nginx

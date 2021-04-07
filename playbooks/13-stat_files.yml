@@ -1,0 +1,23 @@
+---
+- name: Demo on statistics of files
+  hosts: DEV
+  tasks:
+     - name: check the statistics of file
+       stat: 
+         path: /tmp/01-print.yaml
+       register: st
+     - name: printing the statistics fo file
+       debug:
+         msg: "{{st}}"
+     - name: printing file exists or not
+       debug:
+         msg: "{{st.stat.exists}}"
+     - name: print the file output
+       debug:
+         msg: "the file 01-print.yaml is exists"
+       when: st.stat.exists == true
+
+     - name: print the file output if not available
+       debug:
+         msg: " the file 01-print.yaml is not exists or available"
+       when: st.stat.exists == false

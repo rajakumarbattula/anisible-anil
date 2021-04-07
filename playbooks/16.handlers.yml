@@ -1,0 +1,12 @@
+---
+- name: demo on handlers
+  hosts: DEV
+  become: yes
+  tasks:
+      - name: installing the httpd
+        action: yum name=httpd state=present
+        notify: Restart HTTPD   # this is called only if the action is ran & successful #
+  handlers:
+      - name: Restart HTTPD   # this has to match the notify name #
+        action: service name=httpd state=restarted
+

@@ -1,0 +1,9 @@
+- name: installing database server
+  hosts: Dev
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: installing mariadb
+      yum: 
+        name: git 
+        state: absent

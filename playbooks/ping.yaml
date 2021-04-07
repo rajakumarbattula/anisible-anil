@@ -1,0 +1,6 @@
+---
+- name: pinging the Dev server
+  hosts: Dev
+  tasks:
+     - name: simple ping 
+       ping:

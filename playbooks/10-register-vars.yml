@@ -1,0 +1,19 @@
+---
+- name: demo on registering the varibales
+  hosts: DEV
+  tasks:
+    - name: regsiter the output variable
+      shell: id -u
+      register: test
+    - name: printing the output
+      debug:
+        msg: "{{test}}"
+    - name: printing the actual output
+      debug:
+        msg: "{{test.stdout}}"
+    - name: set the variables
+      set_fact:
+        MY_ID_NUM: "{{test.stdout}}" 
+    - name: print the permanent variable
+      debug:
+        msg: id is "{{MY_ID_NUM}}"

@@ -1,0 +1,17 @@
+---
+- name: demo on ignore errors
+  hosts: DEV
+  tasks:
+    - name: running some simple command
+      shell: kakjsfafd 
+      register: ID
+      ignore_errors: true
+    - name: running second command
+      shell: pwd
+      register: test
+    - name: printing the first command
+      debug: 
+        msg: "{{ID}}"
+    - name: printing the first command
+      debug:
+        msg: "{{test}}"

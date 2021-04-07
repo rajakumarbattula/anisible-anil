@@ -1,0 +1,7 @@
+[DEV]
+34.67.239.133
+[Test]
+34.123.212.8
+
+[all:vars]
+NAME=httpd

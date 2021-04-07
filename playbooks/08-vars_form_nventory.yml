@@ -1,0 +1,7 @@
+---
+- name: demo on variables from inventory 
+  hosts: DEV
+  tasks:
+     - name: printing the variables
+       debug:
+         msg: "name = {{NAME}} age = {{AGE}}"

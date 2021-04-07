@@ -1,0 +1,10 @@
+---
+- name: demo on variables from files
+  hosts: DEV
+  vars_files:
+     - vars.yml
+  tasks:
+    - name: printing the variable
+      debug:
+        msg: "NAME= {{CLASS_NAME}} and TECH= {{SOFTWARE}}"
+      #remote_src: yes

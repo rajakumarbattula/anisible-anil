@@ -1,0 +1,15 @@
+---
+- name: Demo on templates
+  hosts: "{{environment}}"
+  become: yes
+  vars:
+    - package: httpd
+    - package1: git
+    - package2: docker
+  tasks:
+    - name: using template for copy the files
+      template:
+        src: /root/devops_training/install.j2
+        dest: /tmp/packages.sh
+    - name: running the shellscript
+      shell: sh /tmp/packages.sh

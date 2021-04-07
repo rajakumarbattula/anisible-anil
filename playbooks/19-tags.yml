@@ -1,0 +1,33 @@
+---
+- name: installing the webserver
+  hosts: Test
+  become: yes
+  gather_facts: no
+  tags:
+     - test1
+  tasks:
+     - name: Installing the httpd package
+       tags:
+          - always
+       yum:
+         name: "{{NAME}}"
+         state: latest
+     - name: starting the service of httpd
+       tags:
+          - never
+       service:
+         name: "{{NAME}}"
+         state: stopped
+     - name: Installing the nginx package
+       tags:
+          - always
+       yum:
+         name: nginx
+         state: latest
+     - name: starting the service of nginx
+       tags:
+          - never
+       service:
+         name: nginx
+         state: started
+

@@ -1,0 +1,11 @@
+---
+- name: vars from prompt
+  hosts: DEV
+  vars_prompt:
+     - name: PASSWD
+       prompt: Please enter your db password
+       private: yes
+  tasks:
+    - name: print the password
+      debug:
+        msg: "password is {{PASSWD}}"
